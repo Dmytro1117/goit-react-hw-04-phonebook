@@ -1,0 +1,39 @@
+ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 350px;
+  margin-bottom: 8px;
+ 
+}
+
+p {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
+li > button {
+  
+  width: 60px;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(38, 105, 221, 0.742);
+  border-radius: 4px;
+}
+
+li > button:hover {
+  transform: scale(1.05);
+}
