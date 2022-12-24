@@ -5,10 +5,11 @@ import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { nanoid } from 'nanoid';
 import './App.module.css';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const App = () => { 
   const [filter, setFilter] = useState('')
-  const [contacts, setContacts] = useState(JSON.parse(window.localStorage.getItem('contacts')) ?? []);
+  const [contacts, setContacts] = useState(() => { return JSON.parse(window.localStorage.getItem('contacts')) ?? [] });
 
 
   useEffect(() => {
@@ -24,7 +25,7 @@ export const App = () => {
     };
 
     contacts.some(num => num.name === contact.name.toLowerCase() || num.number === contact.number)
-      ? alert(`${name} or ${number} is already in contacts`)
+      ? Notify.info(`${name} or ${number} is already in contacts`)
       : setContacts([contact, ...contacts])
   };
 
